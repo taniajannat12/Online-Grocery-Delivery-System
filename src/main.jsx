@@ -5,6 +5,8 @@ import './index.css'; // আপনার Tailwind CSS ফাইল
 import SignPage from "./Components/SignPage";
 import LoginPage from "./Components/LoginPage";
 import Home from './Components/Home'; // ডট এবং স্লাশ (./) ঠিক আছে কি না নিশ্চিত করুন
+import Cart from './Components/Cart';
+import Checkout from './Components/Checkout';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,6 +17,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/signup" element={<SignPage />} />
         <Route path="/login" element={<LoginPage />} />
           <Route path="/Home" element={<Home />} />
+              <Route path="/Cart" element={<Cart />} />
+      <Route path="/Checkout" element={<Checkout/>} />
+     
+     
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
