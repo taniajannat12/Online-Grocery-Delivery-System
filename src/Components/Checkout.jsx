@@ -1,4 +1,4 @@
-// Checkout.jsx
+
 import { useState } from 'react';
 
 const Checkout = () => {
@@ -10,7 +10,7 @@ const Checkout = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        {/* Billing Form Section (2/3 width) */}
+    
         <div className="lg:col-span-2 space-y-6">
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
             <h3 className="text-lg font-bold text-gray-700 mb-6 border-b pb-2">Billing Information</h3>
@@ -23,7 +23,7 @@ const Checkout = () => {
           </div>
         </div>
 
-        {/* Payment & Summary Section (1/3 width) */}
+      
         <div className="lg:col-span-1">
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 sticky top-4">
             <h3 className="text-lg font-bold text-gray-700 mb-6">Payment Method</h3>
@@ -43,7 +43,7 @@ const Checkout = () => {
               ))}
             </div>
 
-            {/* Payment Details Box */}
+        
             <div className="mt-6 p-4 bg-gray-50 rounded-xl border border-gray-100 text-sm text-gray-600">
               <p className="font-semibold mb-2">Send payment to:</p>
               <p className="font-bold text-lg text-green-700 mb-3">01XXX-XXXXXX</p>

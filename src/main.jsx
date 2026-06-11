@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* রুট পাথ হিসেবে সাইন-আপ পেজ রাখলাম */}
+     
         <Route path="/" element={<SignPage />} />
         <Route path="/signup" element={<SignPage />} />
         <Route path="/login" element={<LoginPage />} />

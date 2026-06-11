@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    open: false, // এটি দিলে VS Code অটোমেটিক ব্রাউজার খুলবে না
+    open: false, 
   },
 })
