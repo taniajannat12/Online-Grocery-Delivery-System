@@ -12,14 +12,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-     
-        <Route path="/" element={<SignPage />} />
+     <Route path="/" element={<Home />} />
+        
         <Route path="/signup" element={<SignPage />} />
         <Route path="/login" element={<LoginPage />} />
-          <Route path="/Home" element={<Home />} />
+        
               <Route path="/Cart" element={<Cart />} />
       <Route path="/Checkout" element={<Checkout/>} />
-     
+      
      
       </Routes>
     </BrowserRouter>

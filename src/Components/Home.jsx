@@ -1,5 +1,5 @@
 import { GiFruitBowl } from "react-icons/gi";
-
+import Footer from './Footer';
 
 import groceryImg from "../assets/grocery.jpg";
 
@@ -17,7 +17,7 @@ import orderImg from "../assets/icon7.svg";
 import deliveryImg from "../assets/icon8.svg";
 import footerBg from "../assets/footer.jpg";
 import { FaAppleAlt } from "react-icons/fa";
-
+import { FaStar } from "react-icons/fa";
 
 const Groceryhome = () => {
   const categories = [
@@ -27,7 +27,17 @@ const Groceryhome = () => {
     { icon: nutsIcon, title: "Nuts" },
     { icon: beverageIcon, title: "Beverages" },
   ];
+const reviews = [
+    { name: "Rahim Ahmed", text: "Excellent service! The vegetables are always super fresh.", rating: 5 },
+    { name: "Fatima Begum", text: "Timely delivery and the packaging quality is very good.", rating: 5 },
+    { name: "Karim Khan", text: "Best platform for online grocery shopping. Highly recommended!", rating: 4 },
+ { name: "Rahima Khan", text: "Excellent service! The Fruits are always super fresh.", rating: 5 },
+    { name: "Fatima Jahan", text: "Timely delivery and the packaging quality is best.", rating: 5 },
+    { name: "Rohan Shikdar", text: "Best platform for online grocery Delivery shopping. Best!", rating: 5},
 
+
+
+  ];
   return (
   <>
       {/* Navbar */}
@@ -80,6 +90,15 @@ const Groceryhome = () => {
       className="hover:text-lime-500 transition duration-300"
     >
       Contact
+    </a>
+  </li>
+  
+   <li>
+    <a
+      href="#Deals"
+      className="hover:text-lime-500 transition duration-300"
+    >
+     Sign Up
     </a>
   </li>
    <li>
@@ -304,7 +323,51 @@ const Groceryhome = () => {
         </div>
       </div>
     </section>
+
+
+
+
+<section className="py-24 bg-gray-50 overflow-hidden">
+  <div className="max-w-full mx-auto px-6">
+    <h2 className="text-center text-4xl font-bold text-gray-800 mb-12">What Our Customers Say</h2>
+    
+    {/* এখানে w-max ক্লাসটি যোগ করা খুব জরুরি */}
+    <div className="flex gap-8 animate-slide w-max">
+      {[...reviews, ...reviews, ...reviews].map((review, index) => (
+        <div key={index} className="min-w-[300px] bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+          <div className="flex text-orange-400 mb-4">
+             {[...Array(review.rating)].map((_, i) => <FaStar key={i} />)}
+          </div>
+          <p className="text-gray-600 mb-6">"{review.text}"</p>
+          <h4 className="font-bold text-gray-800">{review.name}</h4>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <style jsx>{`
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      /* এখানে -33.33% মানে হলো প্রথম ৬টি রিভিউ পার হয়ে পরের ৬টি আসা */
+      100% { transform: translateX(-33.33%); }
+    }
+    .animate-slide {
+      animation: slide 30s linear infinite;
+    }
+    .animate-slide:hover {
+      animation-play-state: paused;
+    }
+  `}</style>
+</section>
+    
+
   
+
+
+
+
+
+  <Footer/>
  </>
   );
 };
