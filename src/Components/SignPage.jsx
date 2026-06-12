@@ -1,7 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import Navbar from "./Navbar";
+
+import Footer from "./Footer";
+
 const SignPage = () => {
+
+ 
+
+
+
   const [data, setData] = useState({ name: '', email: '', password: '' });
   const navigate = useNavigate();
 
@@ -19,9 +28,13 @@ const SignPage = () => {
   };
 
   return (
+
+<>
+    <Navbar/> 
+
     <div className="min-h-screen flex items-center justify-center bg-green-50">
       <div className="bg-white p-10 rounded-3xl shadow-xl w-full max-w-sm border-t-8 border-green-500">
-        <h2 className="text-3xl font-extrabold text-green-700 mb-2">Join FreshCart</h2>
+        <h2 className="text-3xl font-extrabold text-green-700 mb-2">Join Bacalo</h2>
         <p className="text-gray-500 mb-6">Get groceries delivered to your door.</p>
         <form onSubmit={handleSignup} className="space-y-4">
           <input type="text" placeholder="Full Name" className="w-full bg-green-50 p-3 rounded-xl outline-none focus:ring-2 focus:ring-green-400" onChange={(e) => setData({...data, name: e.target.value})} required />
@@ -31,6 +44,11 @@ const SignPage = () => {
         </form>
       </div>
     </div>
+
+
+    <Footer/>
+    </>
   );
+
 };
 export default SignPage;

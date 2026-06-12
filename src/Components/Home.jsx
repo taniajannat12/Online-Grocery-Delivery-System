@@ -2,8 +2,6 @@ import { GiFruitBowl } from "react-icons/gi";
 import Footer from './Footer';
 
 import groceryImg from "../assets/grocery.jpg";
-
-
 import fruitIcon from "../assets/icon1.svg";
 import vegetableIcon from "../assets/icon2.svg";
 import berriesIcon from "../assets/icon3.svg";
@@ -18,6 +16,10 @@ import deliveryImg from "../assets/icon8.svg";
 import footerBg from "../assets/footer.jpg";
 import { FaAppleAlt } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
+
+import Navbar from "./Navbar";
+
+
 
 const Groceryhome = () => {
   const categories = [
@@ -40,77 +42,9 @@ const reviews = [
   ];
   return (
   <>
-      {/* Navbar */}
-      <nav className="flex justify-between items-center px-16 py-5 bg-white">
-        <div className="flex items-center gap-4">
-          <GiFruitBowl className="text-6xl text-orange-400" />
 
-          <div>
-            <h1 className="text-5xl font-bold leading-none text-gray-800">
-              Bacalo
-            </h1>
 
-            <p className="mt-1 text-[10px] tracking-[4px] text-gray-500">
-              ONLINE GROCERY STORE
-            </p>
-          </div>
-        </div>
-
-       <ul className="flex gap-10 text-lg font-small">
-  <li>
-    <a
-      href="#AboutUs"
-      className="hover:text-lime-500 transition duration-300"
-    >
-      About Us
-    </a>
-  </li>
- <li>
-    <a
-      href="#Deals"
-      className="hover:text-lime-500 transition duration-300"
-    >
-      Shop
-    </a>
-  </li>
-  
-
-  <li>
-    <a
-      href="#Deals"
-      className="hover:text-lime-500 transition duration-300"
-    >
-      Best Deals
-    </a>
-  </li>
-
-  <li>
-    <a
-      href="#Contact"
-      className="hover:text-lime-500 transition duration-300"
-    >
-      Contact
-    </a>
-  </li>
-  
-   <li>
-    <a
-      href="#Deals"
-      className="hover:text-lime-500 transition duration-300"
-    >
-     Sign Up
-    </a>
-  </li>
-   <li>
-    <a
-      href="#Deals"
-      className="hover:text-lime-500 transition duration-300"
-    >
-     Login
-    </a>
-  </li>
-</ul>
-      </nav>
+<Navbar/>
   
 
       {/* Hero Section */}

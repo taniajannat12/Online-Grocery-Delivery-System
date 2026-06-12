@@ -7,6 +7,7 @@ import LoginPage from "./Components/LoginPage";
 import Home from './Components/Home'; // ডট এবং স্লাশ (./) ঠিক আছে কি না নিশ্চিত করুন
 import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
+import Contact from './Components/Contact';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -14,9 +15,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
      <Route path="/" element={<Home />} />
         
-        <Route path="/signup" element={<SignPage />} />
+        <Route path="/SignPage" element={<SignPage />} />
         <Route path="/login" element={<LoginPage />} />
-        
+        <Route path="/Contact" element={<Contact />} />
               <Route path="/Cart" element={<Cart />} />
       <Route path="/Checkout" element={<Checkout/>} />
       

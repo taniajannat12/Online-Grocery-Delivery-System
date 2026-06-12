@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from "./Navbar";
+
+import Footer from "./Footer";
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -20,6 +23,9 @@ const LoginPage = () => {
   };
 
   return (
+
+    <>
+    <Navbar/>
     <div className="min-h-screen flex items-center justify-center bg-green-50">
       <div className="bg-white p-10 rounded-3xl shadow-xl w-full max-w-sm border-t-8 border-green-500">
         <h2 className="text-3xl font-extrabold text-green-700 mb-2">Welcome Back</h2>
@@ -31,6 +37,10 @@ const LoginPage = () => {
         </form>
       </div>
     </div>
+
+
+    <Footer/>
+    </>
   );
 };
 export default LoginPage;
