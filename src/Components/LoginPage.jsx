@@ -16,7 +16,7 @@ const LoginPage = () => {
 
     if (user) {
       alert("Welcome back, " + user.name + "!");
-      navigate('/home'); // ধরে নিচ্ছি আপনার একটি হোম পেজ আছে
+      navigate('/home'); 
     } else {
       alert("Invalid Email or Password!");
     }

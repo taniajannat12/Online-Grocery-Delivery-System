@@ -1,12 +1,16 @@
 
 import { useState } from 'react';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const Checkout = () => {
   const [paymentMethod, setPaymentMethod] = useState('bKash'); // Default selected
 
   return (
+    <>
+    <Navbar/>
     <div className="container mx-auto px-6 py-12 max-w-6xl">
-      <h2 className="text-3xl font-extrabold text-gray-800 mb-8">Secure Checkout</h2>
+      <h2 className="text-3xl font-extrabold text-gray-800 mt-16 mb-8">Secure Checkout</h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
@@ -61,6 +65,8 @@ const Checkout = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

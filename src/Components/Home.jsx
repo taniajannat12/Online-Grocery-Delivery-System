@@ -1,6 +1,6 @@
 import { GiFruitBowl } from "react-icons/gi";
 import Footer from './Footer';
-
+import { useState } from 'react';
 import groceryImg from "../assets/grocery.jpg";
 import fruitIcon from "../assets/icon1.svg";
 import vegetableIcon from "../assets/icon2.svg";
@@ -17,11 +17,18 @@ import footerBg from "../assets/footer.jpg";
 import { FaAppleAlt } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 
+import ProductCard from './ProductCard'; 
+import { productsData } from '../data'; 
 import Navbar from "./Navbar";
 
 
-
 const Groceryhome = () => {
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredProducts = productsData.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   const categories = [
     { icon: fruitIcon, title: "Fresh Fruit" },
     { icon: vegetableIcon, title: "Vegetables" },
@@ -49,7 +56,7 @@ const reviews = [
 
       {/* Hero Section */}
       <section
-        className="h-[90vh] bg-cover  ml-auto bg-center flex items-center"
+        className="h-[90vh] bg-cover  ml-auto bg-center flex items-center  mt-20 "
         style={{
           backgroundImage: `url(${groceryImg})`,
         }}
@@ -73,6 +80,12 @@ const reviews = [
           </button>
         </div>
       </section>
+
+
+
+
+
+
 
      {/* Category Section */}
 <section className="py-24 bg-white">
@@ -265,7 +278,7 @@ const reviews = [
   <div className="max-w-full mx-auto px-6">
     <h2 className="text-center text-4xl font-bold text-gray-800 mb-12">What Our Customers Say</h2>
     
-    {/* এখানে w-max ক্লাসটি যোগ করা খুব জরুরি */}
+    
     <div className="flex gap-8 animate-slide w-max">
       {[...reviews, ...reviews, ...reviews].map((review, index) => (
         <div key={index} className="min-w-[300px] bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
@@ -282,7 +295,7 @@ const reviews = [
   <style jsx>{`
     @keyframes slide {
       0% { transform: translateX(0); }
-      /* এখানে -33.33% মানে হলো প্রথম ৬টি রিভিউ পার হয়ে পরের ৬টি আসা */
+     
       100% { transform: translateX(-33.33%); }
     }
     .animate-slide {

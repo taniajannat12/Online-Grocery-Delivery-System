@@ -1,12 +1,16 @@
 
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const Cart = ({ cartItems, removeFromCart }) => {
   const navigate = useNavigate();
 
   return (
+    <>
+    <Navbar/>
     <div className="container mx-auto p-8">
-      <h2 className="text-3xl font-bold mb-6">Shopping Cart</h2>
+      <h2 className="text-3xl font-bold mt-24 mb-6">Shopping Cart</h2>
       <table className="w-full border-collapse">
         <thead>
           <tr className="bg-yellow-400">
@@ -37,6 +41,8 @@ const Cart = ({ cartItems, removeFromCart }) => {
         Proceed to Checkout
       </button>
     </div>
+    <Footer/>
+    </>
   );
 };
 export default Cart;
