@@ -1,0 +1,66 @@
+
+
+
+
+
+"use client"; // ক্লায়েন্ট কম্পোনেন্ট হিসেবে এটি জরুরি
+import { useRouter } from 'next/navigation'; // নেক্সট জেএস নেভিগেশন
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+const Cart = ({ cartItems, removeFromCart }) => {
+  const router = useRouter(); // useNavigate এর বদলে useRouter
+
+  return (
+    <>
+      <Navbar />
+      <div className="container mx-auto p-8 min-h-screen">
+        <h2 className="text-3xl font-bold mt-24 mb-6">Shopping Cart</h2>
+        
+        {/* যদি কার্ট খালি থাকে */}
+        {!cartItems || cartItems.length === 0 ? (
+          <p className="text-gray-500">Your cart is empty.</p>
+        ) : (
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="bg-yellow-400">
+                <th className="p-4 text-left">Product</th>
+                <th className="p-4">Price</th>
+                <th className="p-4">Quantity</th>
+                <th className="p-4">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartItems.map((item) => (
+                <tr key={item.id} className="border-b text-center">
+                  <td className="p-4 flex items-center gap-4 text-left">
+                    <button 
+                      onClick={() => removeFromCart(item.id)} 
+                      className="text-red-500 font-bold"
+                    >
+                      ✕
+                    </button>
+                    <span>{item.name}</span>
+                  </td>
+                  <td>${item.price}</td>
+                  <td>{item.quantity}</td>
+                  <td>${item.price * item.quantity}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+
+        <button 
+          onClick={() => router.push('/checkout')} // router.push ব্যবহার করুন
+          className="mt-6 bg-green-700 text-white px-6 py-3 rounded hover:bg-green-800 transition"
+        >
+          Proceed to Checkout
+        </button>
+      </div>
+     
+    </>
+  );
+};
+
+export default Cart;
