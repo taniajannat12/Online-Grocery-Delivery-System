@@ -1,65 +1,82 @@
+"use client";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import { useCart } from "@/context/CartContext";
 
+const Cart = () => {
+  const router = useRouter();
 
+  const { cartItems, removeFromCart } = useCart();
 
-
-
-"use client"; // ক্লায়েন্ট কম্পোনেন্ট হিসেবে এটি জরুরি
-import { useRouter } from 'next/navigation'; // নেক্সট জেএস নেভিগেশন
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-
-const Cart = ({ cartItems, removeFromCart }) => {
-  const router = useRouter(); // useNavigate এর বদলে useRouter
+  const total = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
 
   return (
-    <>
-      <Navbar />
-      <div className="container mx-auto p-8 min-h-screen">
-        <h2 className="text-3xl font-bold mt-24 mb-6">Shopping Cart</h2>
-        
-        {/* যদি কার্ট খালি থাকে */}
-        {!cartItems || cartItems.length === 0 ? (
-          <p className="text-gray-500">Your cart is empty.</p>
-        ) : (
-          <table className="w-full border-collapse">
-            <thead>
-              <tr className="bg-yellow-400">
-                <th className="p-4 text-left">Product</th>
-                <th className="p-4">Price</th>
-                <th className="p-4">Quantity</th>
-                <th className="p-4">Subtotal</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cartItems.map((item) => (
-                <tr key={item.id} className="border-b text-center">
-                  <td className="p-4 flex items-center gap-4 text-left">
-                    <button 
-                      onClick={() => removeFromCart(item.id)} 
-                      className="text-red-500 font-bold"
-                    >
-                      ✕
-                    </button>
-                    <span>{item.name}</span>
-                  </td>
-                  <td>${item.price}</td>
-                  <td>{item.quantity}</td>
-                  <td>${item.price * item.quantity}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+    <div className="container mx-auto p-8 min-h-screen">
+      <h2 className="text-4xl font-bold mt-24 mb-8">
+        Shopping Cart
+      </h2>
 
-        <button 
-          onClick={() => router.push('/checkout')} // router.push ব্যবহার করুন
-          className="mt-6 bg-green-700 text-white px-6 py-3 rounded hover:bg-green-800 transition"
-        >
-          Proceed to Checkout
-        </button>
-      </div>
-     
-    </>
+      {cartItems.length === 0 ? (
+        <h2>Your cart is empty.</h2>
+      ) : (
+        <>
+          {cartItems.map((item) => (
+            <div
+              key={`${item.id}-${item.weight}`}
+              className="border rounded-xl p-5 mb-5 flex justify-between items-center"
+            >
+              <div className="flex gap-5 items-center">
+                <img
+                  src={item.image}
+                  className="w-28 h-28 rounded-lg object-cover"
+                  alt={item.name}
+                />
+
+                <div>
+                  <h2 className="text-2xl font-bold">
+                    {item.name}
+                  </h2>
+
+                  <p>Weight : {item.weight}</p>
+
+                  <p>Quantity : {item.quantity}</p>
+
+                  <p className="text-green-700 font-bold">
+                    ${item.price}
+                  </p>
+                </div>
+              </div>
+
+              <button
+                onClick={() => {
+  removeFromCart(item.id, item.weight);
+  toast.error("🗑️ Product removed from cart");
+}}
+                className="bg-red-500 text-white px-6 py-3 rounded-lg"
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+
+          <div className="text-right mt-8">
+            <h2 className="text-4xl font-bold">
+              Total : ${total.toFixed(2)}
+            </h2>
+
+            <button
+              onClick={() => router.push("/checkout")}
+              className="mt-5 bg-green-700 text-white px-8 py-4 rounded-full"
+            >
+              Proceed To Checkout
+            </button>
+          </div>
+        </>
+      )}
+    </div>
   );
 };
 

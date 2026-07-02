@@ -1,23 +1,21 @@
+// firebase.js
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import { getAuth } from "firebase/auth"; // এটা যোগ করতে হবে
+import { getAnalytics } from "firebase/analytics";
 
-// Replace with your Firebase project configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBT4wkASCLvxYALNkH5hryY-8gztA0i6Ug",
+  authDomain: "online-grocery-delivery-system.firebaseapp.com",
+  projectId: "online-grocery-delivery-system",
+  storageBucket: "online-grocery-delivery-system.firebasestorage.app",
+  messagingSenderId: "724721453805",
+  appId: "1:724721453805:web:ce7ebd6534e562c4565ae4",
+  measurementId: "G-605DXVMYV3"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Auth and Provider
-export const auth = getAuth(app);
-export const googleProvider = new GoogleAuthProvider();
 
-// Login & Logout helper functions
-export const signInWithGoogle = () => signInWithPopup(auth, googleProvider);
-export const logout = () => signOut(auth);
+// এটা সবচেয়ে গুরুত্বপূর্ণ - Auth এক্সপোর্ট করো
+export const auth = getAuth(app);
