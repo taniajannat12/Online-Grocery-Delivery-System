@@ -11,7 +11,7 @@ export async function POST(req) {
  console.log("Received Body:", body);
    // src/app/api/orders/route.js
 const order = await Order.create({
-  customerName: body.customerName, // ফ্রন্টএন্ডের customerName কে ডাটাবেজের 'name' ফিল্ডে ম্যাপ করছি
+  customerName: body.customerName, 
   phone: body.phone,
   email: body.email,
   address: body.address,
